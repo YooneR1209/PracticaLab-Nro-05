@@ -1,0 +1,148 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="pagetitle text-center">
+    <h1>LISTADO DE FAMILIAS</h1>
+</div>
+
+<!-- Bloque para mostrar mensajes de flash -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+  <div class="alert alert-warning">
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endwith %}
+
+<script>
+    $(document).ready(function() {  //Se ejecuta solo cuando la página ha terminado de cargarse
+        // Función para actualizar la URL de búsqueda
+        function actualizarUrlBusqueda() {
+        var baseUrl = 'http://localhost:5000/admin/familia/search/';
+        var texto = $("#texto").val();  //Capturamos los valores del input
+        var criterio = $("#criterio").val();
+        var busqueda = $("#busqueda").val();
+
+        // Ajuste para cambiar el criterio si se selecciona "binario"
+        if (busqueda === "binario" && criterio === "integrantes") {
+            criterio = "integrantesBinario";
+        }
+
+        var url = baseUrl + criterio + '/' + texto + '?metodo=' + $("#metodo").val();
+        $("#btn").attr("href", url);   // Actualizamos en atributo href con #btn
+    }
+
+        // Evento para actualizar la URL de búsqueda dinámicamente
+        $("#texto").keyup(actualizarUrlBusqueda);   //Evento keyup: llama a la funcion actualizarUrlBusqueda cada vez que soltamos una tecla en el campo texto
+        $("#criterio, #metodo").change(actualizarUrlBusqueda);    //Evento change: llama a la función actualizarUrlBusqueda cada vez que citerio o metodo cambian
+
+        // Agregar funcionalidad a los enlaces de ordenamiento
+        $(".orden-link").click(function(e) {   //Asociamos un evento click a los elementos HTML que pertenezcan a la clase orden-link
+            e.preventDefault(); // Evitar recargar la página
+            var urlBase = 'http://localhost:5000/admin/familia/order/';   
+            var campo = $(this).data('campo');
+            var orden = $(this).data('orden'); // 1 para ascendente, 0 para descendente
+            var metodo = $("#metodo").val(); // Método de ordenamiento seleccionado
+            var nuevaUrl = urlBase + campo + '/' + orden + '/' + metodo;
+            window.location.href = nuevaUrl; // Redirigir a la nueva URL
+        });
+    });
+</script>
+
+
+<section class="section">
+    <div class="col-lg-6"style="margin-left: 5%;">
+        <label>Criterio</label>
+        <select id="criterio">
+            <option value ="apellidoP">Apellido Paterno</option>
+            <option value ="apellidoM">Apellido Materno</option>
+            <option value ="canton">Canton</option>
+            <option value ="integrantes">Integrantes</option>
+            <!-- <option value ="id">Id</option> -->
+        </select>
+        <input id="texto" placeholder="Ingresa un texto a buscar"/>
+        <a id="btn" class="btn btn-success">Buscar</a>
+    </div>
+
+    <div class="col-lg-6" style="margin-left: 5%;">
+        Busqueda</label>
+        <select id="busqueda">
+            <option value ="linealbinario">LinealBinaria</option>
+            <option value ="binario">Binaria</option>
+        </select>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div style="text-align: right; width: 30%;">
+                    <br>
+                    <br>
+                    <label>Metodo Ordenación</label>
+                    <select id="metodo">
+                        <option value="1">Método Lineal</option>
+                        <option value="2">Método ShellSort</option>
+                        <option value="3">Método QuickSort</option>
+                        <option value="4">Método MergeSort</option>
+                    </select>
+                </div>                
+                <div class="card-body">
+                    <h5 class="card-title text-center">Encuestados</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered text-center mx-auto" style="max-width: 1000px;">
+                            <thead>
+                                <tr>
+                                    <!-- <th>
+                                        Id
+                                        <a href="#" class="orden-link" data-campo="id" data-orden="1"><i class="bi bi-arrow-up"></i></a>
+                                        <a href="#" class="orden-link" data-campo="id" data-orden="0"><i class="bi bi-arrow-down"></i></a>
+                                    </th> -->
+                                    <th>
+                                        Cantón
+                                        <a href="#" class="orden-link" data-campo="canton" data-orden="1"><i class="bi bi-arrow-up"></i></a>
+                                        <a href="#" class="orden-link" data-campo="canton" data-orden="0"><i class="bi bi-arrow-down"></i></a>
+                                    </th>
+                                    <th>
+                                        Apellidos
+                                        <a href="#" class="orden-link" data-campo="apellidoP" data-orden="1"><i class="bi bi-arrow-up"></i></a>
+                                        <a href="#" class="orden-link" data-campo="apellidoP" data-orden="0"><i class="bi bi-arrow-down"></i></a>
+                                    </th>
+                                    <th>
+                                        Integrantes
+                                        <a href="#" class="orden-link" data-campo="integrantes" data-orden="1"><i class="bi bi-arrow-up"></i></a>
+                                        <a href="#" class="orden-link" data-campo="integrantes" data-orden="0"><i class="bi bi-arrow-down"></i></a>
+                                    </th>
+                                    <th>
+                                        ¿Tiene Generador?
+                                        <a href="#" class="orden-link" data-campo="tiene" data-orden="1"><i class="bi bi-arrow-up"></i></a>
+                                        <a href="#" class="orden-link" data-campo="tiene" data-orden="0"><i class="bi bi-arrow-down"></i></a>
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in lista_familia %}
+                                <tr>
+                                    <!-- <td>{{ item.id }}</td> -->
+                                    <td>{{ item.canton }}</td>
+                                    <td>{{ item.apellidoPaterno }} {{ item.apellidoMaterno }}</td>
+                                    <td>{{ item.integrantes }}</td>
+                                    <td>{{ 'Sí' if item.tieneGenerador else 'No' }}</td>
+                                    <td>
+                                        <a href="/admin/familia/edit/{{ item.id }}" class="btn btn-info">MODIFICAR</a>
+                                        <form action="/admin/familia/delete/{{ item.id }}" method="post" style="display:inline;">
+                                          <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta familia?');">ELIMINAR</button>
+                                      </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

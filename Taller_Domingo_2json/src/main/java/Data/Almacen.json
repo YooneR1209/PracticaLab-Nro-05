@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Zerimar",
+    "latitud": -4.006534609038159,
+    "longitud": -79.20545073861888,
+    "capacidad": 30
+  },
+  {
+    "id": 2,
+    "nombre": "Mercado del Sol",
+    "latitud": -3.972330837690825,
+    "longitud": -79.20612766640531,
+    "capacidad": 100
+  },
+  {
+    "id": 3,
+    "nombre": "Mercado Vital",
+    "latitud": -3.982330837690825,
+    "longitud": -79.20312766640531,
+    "capacidad": 100
+  }
+]

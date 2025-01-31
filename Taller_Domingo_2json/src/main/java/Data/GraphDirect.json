@@ -1,0 +1,47 @@
+{
+  "labels": [
+    null,
+    {
+      "id": 1,
+      "nombre": "Meetion",
+      "descripcion": "MouseGamer",
+      "precio": 10.0,
+      "valoracionPromedio": 5.0
+    },
+    {
+      "id": 2,
+      "nombre": "LogiTech",
+      "descripcion": "Teclado pro",
+      "precio": 20.5,
+      "valoracionPromedio": 5.0
+    },
+    {
+      "id": 2,
+      "nombre": "MousePad",
+      "descripcion": "Marca ASUS",
+      "precio": 5.0,
+      "valoracionPromedio": 4.5
+    }
+  ],
+  "dictVertices": {
+    "Producto{id\u003d\u00271\u0027, nombre\u003d\u0027Meetion\u0027, descripcion\u003d\u0027MouseGamer\u0027, precio\u003d10.0, valoracionPromedio\u003d5.0}": 1,
+    "Producto{id\u003d\u00272\u0027, nombre\u003d\u0027MousePad\u0027, descripcion\u003d\u0027Marca ASUS\u0027, precio\u003d5.0, valoracionPromedio\u003d4.5}": 3,
+    "Producto{id\u003d\u00272\u0027, nombre\u003d\u0027LogiTech\u0027, descripcion\u003d\u0027Teclado pro\u0027, precio\u003d20.5, valoracionPromedio\u003d5.0}": 2
+  },
+  "nro_vertices": 3,
+  "nro_edges": 2,
+  "listAdyacencias": [
+    null,
+    {
+      "header": { "info": { "destination": 3, "weight": 2.0 } },
+      "last": { "info": { "destination": 3, "weight": 2.0 } },
+      "size": 1
+    },
+    { "size": 0 },
+    {
+      "header": { "info": { "destination": 1, "weight": 2.0 } },
+      "last": { "info": { "destination": 1, "weight": 2.0 } },
+      "size": 1
+    }
+  ]
+}

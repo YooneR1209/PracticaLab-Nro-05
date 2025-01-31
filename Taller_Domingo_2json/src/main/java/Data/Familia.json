@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "canton": "Zamora",
+    "apellidoPaterno": "Pardo",
+    "apellidoMaterno": "Matamoros",
+    "integrantes": 4,
+    "tieneGenerador": true
+  },
+  {
+    "id": 2,
+    "canton": "Saraguro",
+    "apellidoPaterno": "Caminos",
+    "apellidoMaterno": "Castillo",
+    "integrantes": 5,
+    "tieneGenerador": true
+  },
+  {
+    "id": 3,
+    "canton": "Pindal",
+    "apellidoPaterno": "Macas",
+    "apellidoMaterno": "Toledo",
+    "integrantes": 4,
+    "tieneGenerador": false
+  },
+  {
+    "id": 4,
+    "canton": "Malacatos",
+    "apellidoPaterno": "Torres",
+    "apellidoMaterno": "Zambrano",
+    "integrantes": 6,
+    "tieneGenerador": true
+  },
+  {
+    "id": 5,
+    "canton": "Calvas",
+    "apellidoPaterno": "Buele",
+    "apellidoMaterno": "Fernandez",
+    "integrantes": 4,
+    "tieneGenerador": false
+  },
+  {
+    "id": 6,
+    "canton": "Zamora",
+    "apellidoPaterno": "Ordoñez",
+    "apellidoMaterno": "Ruiz",
+    "integrantes": 3,
+    "tieneGenerador": false
+  },
+  {
+    "id": 7,
+    "canton": "Vilcabamba",
+    "apellidoPaterno": "Perez",
+    "apellidoMaterno": "Salazar",
+    "integrantes": 5,
+    "tieneGenerador": true
+  },
+  {
+    "id": 8,
+    "canton": "Vilcabamba",
+    "apellidoPaterno": "Guzman",
+    "apellidoMaterno": "Ordoñez",
+    "integrantes": 7,
+    "tieneGenerador": false
+  },
+  {
+    "id": 9,
+    "canton": "Celica",
+    "apellidoPaterno": "Tandazo",
+    "apellidoMaterno": "Ruiz",
+    "integrantes": 5,
+    "tieneGenerador": true
+  },
+  {
+    "id": 10,
+    "canton": "Catamayo",
+    "apellidoPaterno": "Fernandez",
+    "apellidoMaterno": "Perez",
+    "integrantes": 3,
+    "tieneGenerador": false
+  },
+  {
+    "id": 11,
+    "canton": "Olmedo",
+    "apellidoPaterno": "Maldonado",
+    "apellidoMaterno": "Caminos",
+    "integrantes": 4,
+    "tieneGenerador": false
+  },
+  {
+    "id": 12,
+    "canton": "Puyango",
+    "apellidoPaterno": "Guzman",
+    "apellidoMaterno": "Gonzalez",
+    "integrantes": 5,
+    "tieneGenerador": true
+  },
+  {
+    "id": 13,
+    "canton": "Loja",
+    "apellidoPaterno": "Chingo",
+    "apellidoMaterno": "Veintimilla",
+    "integrantes": 4,
+    "tieneGenerador": false
+  },
+  {
+    "id": 14,
+    "canton": "Loja",
+    "apellidoPaterno": "Matailo",
+    "apellidoMaterno": "Matamoros",
+    "integrantes": 6,
+    "tieneGenerador": true
+  },
+  {
+    "id": 15,
+    "canton": "Zamora",
+    "apellidoPaterno": "Pardo",
+    "apellidoMaterno": "Balcazar",
+    "integrantes": 5,
+    "tieneGenerador": true
+  }
+]
